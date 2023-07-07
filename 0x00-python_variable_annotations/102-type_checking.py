@@ -3,6 +3,7 @@
 
 from typing import List, Tuple
 
+
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
     """Takes a tuple lst and an int factor as arguments and returns a list.
 
