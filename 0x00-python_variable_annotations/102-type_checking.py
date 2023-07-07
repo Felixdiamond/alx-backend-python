@@ -3,7 +3,15 @@
 from typing import List, Tuple
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
-    """Takes a tuple and an int as arguments and returns a list."""
+    """Takes a tuple lst and an int factor as arguments and returns a list.
+
+    Args:
+        lst: A tuple containing the elements to be repeated.
+        factor: An int specifying the number of times each element of lst should be repeated. Defaults to 2.
+
+    Returns:
+        A list containing each element of lst repeated factor times.
+    """
     zoomed_in: List = [
         item for item in lst
         for i in range(factor)
