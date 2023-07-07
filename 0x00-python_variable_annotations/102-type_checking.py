@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Define a type-annotated function zoom_array"""
+"""This module defines a type-annotated function zoom_array that takes a tuple and an int as arguments and returns a list."""
+
 from typing import List, Tuple
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
