@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Module for measuring the runtime of the wait_n function"""
 import time
-from previous_file import wait_n
+wait_n = __import__('2-measure_runtime').wait_n
 
 
 def measure_time(n: int, max_delay: int) -> float:
