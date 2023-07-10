@@ -4,11 +4,9 @@ them."""
 
 import asyncio
 from typing import List
-<<<<<<< HEAD
 from 0 - basic_async_syntax import wait_random
 =======
 wait_random = __import__('0-basic_async_syntax').wait_random
->>>>>>> 0ecd31ab2657d3472eb6d854336f769aa67aa4d8
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
