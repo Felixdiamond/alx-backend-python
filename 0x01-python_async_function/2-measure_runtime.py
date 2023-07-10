@@ -10,15 +10,16 @@ wait_n = __import__('1-concurrent_coroutines').wait_n
 def measure_time(n: int, max_delay: int) -> float:
     """Measures the total execution time for wait_n(n, max_delay)
     Args:
-        n (int): The number of times the wait_random coroutine should 
+        n (int): The number of times the wait_random coroutine should
+
         be called max_delay (int): The max delay passed to wait_random
     Returns:
         float: The total elapsed runtime divided by n
     """
-    start = time()
+    start_time = time()
 
     run(wait_n(n, max_delay))
 
-    end = time()
+    elapsed = time() - start_time
 
-    return (end - start) / n
+    return (elapsed) / n
