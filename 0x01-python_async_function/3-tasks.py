@@ -14,4 +14,3 @@ def task_wait_random(max_delay: int) -> asyncio.Task:
     """
     task = asyncio.create_task(wait_random(max_delay))
     return task
-
