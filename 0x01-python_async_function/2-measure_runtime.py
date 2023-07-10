@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Module for measuring the runtime of the wait_n function"""
+import asyncio
 import time
 wait_n = __import__('2-measure_runtime').wait_n
 
@@ -15,6 +16,6 @@ def measure_time(n: int, max_delay: int) -> float:
         float: The average time per call to wait_n
     """
     start = time.time()
-    wait_n(n, max_delay)
+    asyncio.run(wait_n(n, max_delay))
     total_time = time.time() - start
     return total_time / n
