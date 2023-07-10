@@ -2,7 +2,6 @@
 """Module for measuring the runtime of the wait_n function"""
 import asyncio
 import time
-from typing import List, Tuple
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
