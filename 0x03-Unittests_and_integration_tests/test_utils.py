@@ -26,4 +26,3 @@ class TestAccessNestedMap(unittest.TestCase):
             utils.access_nested_map(nested_map, path),
             expected_output
         )
-
