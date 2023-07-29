@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 """This module contains the TestAccessNestedMap class for testing the
 utils.access_nested_map function.
@@ -10,7 +11,7 @@ import utils
 
 class TestAccessNestedMap(unittest.TestCase):
     """This class contains test cases for the utils.access_nested_map function."""
-    
+
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
@@ -21,6 +22,8 @@ class TestAccessNestedMap(unittest.TestCase):
         """Tests that the utils.access_nested_map function returns the expected
         output for given inputs.
         """
-        self.assertEqual(utils.access_nested_map(nested_map, path),
-                         expected_output)
+        self.assertEqual(
+            utils.access_nested_map(nested_map, path),
+            expected_output
+        )
 
