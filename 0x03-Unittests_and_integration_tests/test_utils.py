@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """This module contains the TestAccessNestedMap class for testing the
 utils.access_nested_map function.
