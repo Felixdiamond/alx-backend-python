@@ -3,11 +3,12 @@
 GithubOrgClient.org method.
 """
 
-from typing import Any, Dict
+from typing import Any, Dict, List
 import unittest
 from unittest.mock import Mock, patch, PropertyMock
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
+from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -74,3 +75,38 @@ class TestGithubOrgClient(unittest.TestCase):
                 repo,
                 license_key),
             expected_result)
+
+@parameterized_class([
+    {
+        "org_payload": org_payload,
+        "repos_payload": repos_payload,
+        "expected_repos": expected_repos,
+        "apache2_repos": apache2_repos
+    }
+])
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """Integration tests for the GithubOrgClient class"""
+
+    @classmethod
+    def setUpClass(cls):
+        """Sets up the test environment"""
+        cls.get_patcher = patch('requests.get')
+        cls.mock_get = cls.get_patcher.start()
+        cls.mock_get.side_effect = cls.side_effect
+
+    @classmethod
+    def tearDownClass(cls):
+        """Tears down the test environment"""
+        cls.get_patcher.stop()
+
+    @classmethod
+    def side_effect(cls, url: str) -> Dict[str, Any]:
+        """Returns the correct fixture based on the given URL"""
+        if url == "https://api.github.com/orgs/google":
+            return cls.org_payload
+        elif url == "https://api.github.com/orgs/google/repos":
+            return cls.repos_payload
+        elif url == "https://api.github.com/repos/google/repo1/languages":
+            return {"Python": 1}
+        elif url == "https://api.github.com/repos/google/repo2/languages":
+            return {"Java": 1}
