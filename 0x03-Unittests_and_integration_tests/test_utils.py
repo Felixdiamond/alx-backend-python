@@ -40,4 +40,4 @@ class TestAccessNestedMap(unittest.TestCase):
         """Tests that access_nested_map raises a KeyError for invalid inputs
         """
         with self.assertRaises(KeyError):
-            access_nested_map(nested_map, path)
+            utils.access_nested_map(nested_map, path)
