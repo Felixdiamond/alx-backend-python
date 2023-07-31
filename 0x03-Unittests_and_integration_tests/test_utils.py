@@ -4,6 +4,7 @@ utils.access_nested_map function.
 """
 
 import unittest
+from unittest.mock import patch
 from parameterized import parameterized
 import utils
 from typing import Any, Dict, Tuple
@@ -50,11 +51,12 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False})
     ])
-    def test_get_json(self, test_url, test_payload):
+    def test_get_json(self, test_url: str,
+                      test_payload: Dict[str, Any]) -> None:
         """Tests get_json with different inputs"""
         config = {'return_value.json.return_value': test_payload}
         patcher = patch('requests.get', **config)
         mock = patcher.start()
         self.assertEqual(get_json(test_url), test_payload)
-        mock.assert_called_once()
+        mock.assert_called_once_with(test_url)
         patcher.stop()
