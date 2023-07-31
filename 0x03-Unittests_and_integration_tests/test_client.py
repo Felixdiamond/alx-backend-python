@@ -87,7 +87,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """A class method called before tests in an individual class are run"""
-        
+
         config = {'return_value.json.side_effect':
                   [
                       cls.org_payload, cls.repos_payload,
