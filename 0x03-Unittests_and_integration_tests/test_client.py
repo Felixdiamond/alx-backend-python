@@ -76,6 +76,7 @@ class TestGithubOrgClient(unittest.TestCase):
                 license_key),
             expected_result)
 
+
 @parameterized_class([
     {
         "org_payload": org_payload,
