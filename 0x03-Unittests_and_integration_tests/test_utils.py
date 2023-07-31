@@ -6,7 +6,7 @@ utils.access_nested_map function.
 import unittest
 from parameterized import parameterized
 import utils
-from typing import Any, Dict, Tuple
+from Typing import Any, Dict, Tuple
 
 
 class TestAccessNestedMap(unittest.TestCase):
