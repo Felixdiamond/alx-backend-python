@@ -10,7 +10,8 @@ from typing import Any, Dict, Tuple
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    """This class contains test cases for the utils.access_nested_map function."""
+    """This class contains test cases for the utils.access_nested_map
+    function."""
 
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
