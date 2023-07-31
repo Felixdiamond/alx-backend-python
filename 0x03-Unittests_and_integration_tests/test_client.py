@@ -9,6 +9,7 @@ from unittest.mock import Mock, patch, PropertyMock
 from parameterized import parameterized
 from client import GithubOrgClient
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """Tests the GithubOrgClient class"""
 
@@ -26,7 +27,6 @@ class TestGithubOrgClient(unittest.TestCase):
         url = f'https://api.github.com/orgs/{org_name}'
         mock_get_json.assert_called_once_with(url)
 
-
     def test_public_repos_url(self):
         """Tests that GithubOrgClient._public_repos_url returns the correct
         value"""
@@ -34,7 +34,7 @@ class TestGithubOrgClient(unittest.TestCase):
         payload = {"repos_url": expected_result}
         with patch('client.GithubOrgClient.org', PropertyMock(
             return_value=payload
-            )):
+        )):
             github_client = GithubOrgClient("google")
             self.assertEqual(github_client._public_repos_url,
                              expected_result)
@@ -52,4 +52,3 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(github_client.public_repos, expected_result)
             mock_get_json.assert_called_once()
             mock_public_repos_url.assert_called_once()
-
