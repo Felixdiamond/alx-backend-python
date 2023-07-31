@@ -3,6 +3,7 @@
 utils.access_nested_map function.
 """
 
+from typing import Any, Dict, Tuple
 import unittest
 from parameterized import parameterized
 import utils
@@ -25,3 +26,17 @@ class TestAccessNestedMap(unittest.TestCase):
             utils.access_nested_map(nested_map, path),
             expected_output
         )
+
+    @parameterized.expand([
+        ({}, ("a",)),
+        ({"a": 1}, ("a", "b"))
+    ])
+    def test_access_nested_map_exception(
+            self,
+            nested_map: Dict[str, Any],
+            path: Tuple[str, ...]
+    ) -> None:
+        """Tests that access_nested_map raises a KeyError for invalid inputs
+        """
+        with self.assertRaises(KeyError):
+            access_nested_map(nested_map, path)
